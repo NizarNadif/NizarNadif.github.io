@@ -3,10 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <title>covid in Italia</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>covid-19 in Italia</title>
     <link rel="icon" type="image/png" href="../assets/virus/dark-icon.png" id="dark-icon">
     <link rel="icon" type="image/png" href="../assets/virus/light-icon.png" id="light-icon">
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 
     <!-- -----------------------------Stili----------------------------- -->
     <link rel="stylesheet" href="style.css">
@@ -26,8 +27,8 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container-fluid">
                 <a href="" class="navbar-brand">
-                    <img class="navbar-brand" src="../assets/virus/light-icon.png" height="50px" alt="logo"> espansione del virus in Italia </a>
-
+                    <img class="navbar-brand" src="../assets/virus/light-icon.png" height="50px" alt="logo"> covid-19 in Italia </a>
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
                 <div id="navbarSupportedContent" class="collapse navbar-collapse" style="padding-right: 50px;">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
@@ -45,7 +46,7 @@
     <div class="contenuto">
         <!-- riga delle card -->
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title" id="titoloCard">Dati</h4>
@@ -54,13 +55,13 @@
                 </div>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">
-                            <div class="row">
-                                <div class="col-md-8">Mappa</div>
-                                <div class="col-md-4">
+                            <div class="row justify-content-between">
+                                <div class="col-sm-5">Mappa</div>
+                                <div class="col-sm-4 toggle_luogo">
                                     <input type="checkbox" id="toggleLuogo" onchange="cambiaTipo()" checked data-toggle="toggle" data-on="Regioni" data-off="Province" data-onstyle="outline-primary" data-offstyle="outline-success">
                                 </div>
                             </div>

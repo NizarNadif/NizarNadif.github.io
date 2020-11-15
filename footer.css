@@ -26,3 +26,17 @@ footer .center {
     align-items: center;
     justify-content: center;
 }
+
+
+/* adatto l'altezza del footer per i dispositivi mobili */
+
+@media only screen and (max-width: 768px) {
+    footer,
+    .push {
+        margin-top: 30px;
+        width: 100%;
+        height: 400px;
+        vertical-align: center;
+        background: #F8F9FA;
+    }
+}
