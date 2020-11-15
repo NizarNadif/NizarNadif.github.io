@@ -129,5 +129,5 @@ function getData(data) {
     }
     let giorno = data.slice(8, 10);
     let ora = data.slice(11, 16);
-    return 'pubblicato il ' + giorno + ' ' + nomeMese + ' alle ' + ora;
+    return 'pubblicato il ' + giorno + ' ' + nomeMese + ' ' + anno + ' alle ' + ora;
 }
