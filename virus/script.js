@@ -107,8 +107,16 @@ async function draw(url) {
                     const elNote = document.createElement("p");
                     elNote.innerText = luogo.note;
                     card_body.appendChild(elNote);
-
                 }
+
+                //Pubblicazione
+                let pubblicazione = document.createElement("p");
+                pubblicazione.className = "card-text";
+                card_body.appendChild(pubblicazione);
+                let pubblicazioneSmall = document.createElement("small");
+                pubblicazioneSmall.className = "text-muted";
+                pubblicazioneSmall.innerHTML = getData(luogo.data);
+                pubblicazione.appendChild(pubblicazioneSmall);
 
                 /*--------------------------- Creo la tabella ---------------------------*/
                 const tabella = document.createElement("table");
@@ -185,4 +193,54 @@ function getRiga(testo_colonna_prima, testo_colonna_seconda) {
     riga.appendChild(colonna_prima);
     riga.appendChild(colonna_seconda);
     return riga;
+}
+
+function getData(data) {
+    let anno = data.slice(0, 4);
+    let mese = data.slice(5, 7);
+    let nomeMese;
+    switch (mese) {
+        case '01':
+            nomeMese = 'gennaio';
+            break;
+        case '02':
+            nomeMese = 'febbraio';
+            break;
+        case '03':
+            nomeMese = 'marzo';
+            break;
+        case '04':
+            nomeMese = 'aprile';
+            break;
+        case '05':
+            nomeMese = 'maggio';
+            break;
+        case '06':
+            nomeMese = 'giugno';
+            break;
+        case '07':
+            nomeMese = 'luglio';
+            break;
+        case '08':
+            nomeMese = 'agosto';
+            break;
+        case '09':
+            nomeMese = 'settembre';
+            break;
+        case '10':
+            nomeMese = 'ottobre';
+            break;
+        case '11':
+            nomeMese = 'novembre';
+            break;
+        case '12':
+            nomeMese = 'dicembre';
+            break;
+        default:
+            nomeMese = '';
+            break;
+    }
+    let giorno = data.slice(8, 10);
+    let ora = data.slice(11, 16);
+    return 'dati aggiornati il ' + giorno + ' ' + nomeMese + ' ' + anno + ' alle ' + ora;
 }
