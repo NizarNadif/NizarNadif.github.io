@@ -37,7 +37,7 @@ async function draw(url) {
     mappa.remove();
 
     /* mobile friendly zoom */
-    let isMediumMobile = window.matchMedia("only screen and (max-width: 480px)").matches;
+    let isMediumMobile = window.matchMedia("only screen and (max-width: 420px)").matches;
     let isMobile = window.matchMedia("only screen and (max-width: 575px)").matches;
     let map_zoom = 6;
     if (isMediumMobile) map_zoom = 4;

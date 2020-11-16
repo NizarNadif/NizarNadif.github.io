@@ -39,4 +39,8 @@ footer .center {
         vertical-align: center;
         background: #F8F9FA;
     }
+    .contenuto {
+        padding: 90px 20px 0px 20px;
+        min-height: 100%;
+    }
 }
