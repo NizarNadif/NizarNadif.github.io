@@ -1,9 +1,15 @@
 // CON L'API
-const myKey = 'c07a342362917c615e86ab8abf39b054';
-const url = 'https://gnews.io/api/v4/search?q=e&country=it&sortby=publishedAt&token=' + myKey;
+const myKey = 'cf1aced2a8d67e59db7ba2ea1314b9a7';
+const emergencyKey = 'c07a342362917c615e86ab8abf39b054';
+const url = 'https://gnews.io/api/v4/search?q=e&country=it&sortby=publishedAt&token=';
 const btnNext = document.getElementById("btnNext");
 const list = document.getElementById("card_list");
-riempiLista(url);
+
+try {
+    riempiLista(url + myKey);
+} catch (err) {
+    riempiLista(url + emergencyKey);
+}
 
 function riempiLista(collegamento) {
     fetch(collegamento)
