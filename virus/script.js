@@ -36,9 +36,13 @@ async function draw(url) {
     //rimuovo una eventuale mappa aggiunta precedentemente
     mappa.remove();
 
+    /* mobile friendly zoom */
+    let isMediumMobile = window.matchMedia("only screen and (max-width: 480px)").matches;
     let isMobile = window.matchMedia("only screen and (max-width: 575px)").matches;
     let map_zoom = 6;
-    if (isMobile) map_zoom = 5;
+    if (isMediumMobile) map_zoom = 4;
+    else if (isMobile) map_zoom = 5;
+
     /*creo una mappa nella quale non si può uscire dai
     limiti imposti, Budapest (Romania) e Setif (Tunisia).
     La mappa è centrata su Roma.*/
