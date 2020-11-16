@@ -1,6 +1,10 @@
 const regioni = "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-regioni-latest.json";
 const province = "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-province-latest.json";
-const layer = 'https://api.mapbox.com/styles/v1/sbibbof/ckh85yt2l10cy19mvx6xf4d30/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2JpYmJvZiIsImEiOiJja2dyMHBqaGswOWR2MnpvN3E4OWFpbGNuIn0.qAXx979h5T2-NOhIv3sCRg';
+const layer_basico = new L.TileLayer('https://api.mapbox.com/styles/v1/sbibbof/ckhjt37bw4p1a19kzdtzhnr3e/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2JpYmJvZiIsImEiOiJja2dyMHBqaGswOWR2MnpvN3E4OWFpbGNuIn0.qAXx979h5T2-NOhIv3sCRg');
+const layer_rilievi = new L.TileLayer('https://api.mapbox.com/styles/v1/sbibbof/ckgr0u13m0xj619opait0jcv1/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2JpYmJvZiIsImEiOiJja2dyMHBqaGswOWR2MnpvN3E4OWFpbGNuIn0.qAXx979h5T2-NOhIv3sCRg');
+const layer_strade = new L.TileLayer('https://api.mapbox.com/styles/v1/sbibbof/ckhjstoc84omt19qctz0ev1en/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2JpYmJvZiIsImEiOiJja2dyMHBqaGswOWR2MnpvN3E4OWFpbGNuIn0.qAXx979h5T2-NOhIv3sCRg');
+const layer_scuro = new L.TileLayer('https://api.mapbox.com/styles/v1/sbibbof/ckhjt6ik14p1h19np4fcgdzg1/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2JpYmJvZiIsImEiOiJja2dyMHBqaGswOWR2MnpvN3E4OWFpbGNuIn0.qAXx979h5T2-NOhIv3sCRg');
+const layer_group = [layer_basico, layer_strade, layer_scuro, layer_rilievi];
 
 let posRoma = {
     lat: 41.879156,
@@ -44,8 +48,16 @@ async function draw(url) {
             [47.4979, 19.0402],
             [36.1898, 5.4108]
         ],
-        layers: new L.TileLayer(layer)
+        layers: layer_group
     });
+
+    const baseMaps = {
+        "Strade": layer_strade,
+        "Rilievi": layer_rilievi,
+        "Scuro": layer_scuro,
+        "Basico": layer_basico
+    };
+    L.control.layers(baseMaps).addTo(mappa);
 
     //per ogni dato (provincia o regione), creo un cerchio
     //con dimensioni e colori variabili
