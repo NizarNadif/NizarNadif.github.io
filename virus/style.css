@@ -21,4 +21,7 @@ body {
     .toggle_luogo {
         margin-top: 20px;
     }
+    #mappa {
+        height: 550px;
+    }
 }

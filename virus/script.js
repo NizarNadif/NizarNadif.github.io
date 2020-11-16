@@ -36,14 +36,17 @@ async function draw(url) {
     //rimuovo una eventuale mappa aggiunta precedentemente
     mappa.remove();
 
+    let isMobile = window.matchMedia("only screen and (max-width: 575px)").matches;
+    let map_zoom = 6;
+    if (isMobile) map_zoom = 5;
     /*creo una mappa nella quale non si può uscire dai
     limiti imposti, Budapest (Romania) e Setif (Tunisia).
     La mappa è centrata su Roma.*/
     mappa = new L.Map('mappa', {
         container: 'map',
         center: new L.LatLng(pos.lat, pos.long),
-        zoom: 6,
-        minZoom: 6,
+        zoom: map_zoom,
+        minZoom: map_zoom,
         maxBounds: [
             [47.4979, 19.0402],
             [36.1898, 5.4108]
